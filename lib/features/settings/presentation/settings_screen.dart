@@ -9,25 +9,26 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const apkCommand = 'flutter build apk --release --dart-define=API_BASE_URL=https://analisismetric.com';
-    const iosCommand = 'flutter build ios --release --dart-define=API_BASE_URL=https://analisismetric.com';
+    const iosCommand = 'flutter build ipa --release --dart-define=API_BASE_URL=https://analisismetric.com';
+
     return Scaffold(
       appBar: const AppHeader(showBack: true, title: 'Configuración'),
       body: ListView(
         padding: const EdgeInsets.all(18),
-        children: const [
-          SectionTitle(title: 'Parámetros de compilación'),
-          Card(
+        children: [
+          const SectionTitle(title: 'Parámetros de compilación'),
+          const Card(
             child: ListTile(
               leading: Icon(Icons.cloud_done),
               title: Text('API_BASE_URL'),
               subtitle: Text(AppConstants.baseUrl),
             ),
           ),
-          SectionTitle(title: 'Comandos'),
-          _CommandCard(title: 'Android APK', command: apkCommand),
-          _CommandCard(title: 'iOS', command: iosCommand),
-          SectionTitle(title: 'Notas técnicas'),
-          Card(
+          const SectionTitle(title: 'Comandos'),
+          const _CommandCard(title: 'Android APK', command: apkCommand),
+          const _CommandCard(title: 'iOS IPA', command: iosCommand),
+          const SectionTitle(title: 'Notas técnicas'),
+          const Card(
             child: Padding(
               padding: EdgeInsets.all(16),
               child: Text(
